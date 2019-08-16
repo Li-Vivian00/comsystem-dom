@@ -9,9 +9,16 @@ import java.io.Serializable;
 @Data
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String Id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "Id")
+    private Integer Id;
     private String loginid;
     private String username;
     private String password;
+    private String repeatpass;
+    private String sex;
+    private String phone;
+    private String email;
+    private String card;
+    private String login_id;
 }

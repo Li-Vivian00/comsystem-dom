@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/adminLogin")
 public class adminLoginController {
     @Autowired
     AdminService adminService;
 
-    @RequestMapping(value = "/adminLogin/adminlogin",method = RequestMethod.POST)
+    @RequestMapping(value = "/adminlogin",method = RequestMethod.POST)
     public String adminLogin(@RequestBody Admin admin) {
         String result =adminService.adminLoginService(admin);
         return result;

@@ -14,4 +14,8 @@ public class Admin {
     private String loginid;
     private String adminname;
     private String password;
+    private String sex;
+    private String phone;
+    private String email;
+    private String card;
 }
