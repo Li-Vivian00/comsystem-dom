@@ -5,18 +5,16 @@ import com.example.comsystem.DemoApplication;
 import com.example.comsystem.repository.login.UserLoginRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import javafx.application.Application;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -28,10 +26,14 @@ import org.springframework.web.context.WebApplicationContext;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
 public class DemoApplicationTests {
-	@Mock
+	@MockBean
 	UserLoginRepository userLoginRepository;
 	@Autowired
 	private WebApplicationContext webApplicationContext;
@@ -43,19 +45,19 @@ public class DemoApplicationTests {
 	}
 
 	@Test
-	public void test() throws Exception{
+	public void loginControllerTest() throws Exception{
 		Map<String,String> map = new HashMap<>();
 		map.put("loginid","username1");
-		map.put("password","username1");
-		String content = JSONObject.toJSONString(map);
-
+		map.put("password","password");
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
+		ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+		String requestJson=ow.writeValueAsString(map );
 		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(("/api/userLogin/login"))
 				.contentType(MediaType.APPLICATION_JSON_UTF8)
-				.content(content))
+				.content(requestJson))
 				.andDo(MockMvcResultHandlers.print())
 				.andExpect(MockMvcResultMatchers.status().isOk())
-//				.andExpect(MockMvcResultMatchers.content().string("success"))
-				.andExpect(MockMvcResultMatchers.jsonPath("$[0].loginid").value("username1"))
 				.andReturn();
 		int status = mvcResult.getResponse().getStatus();
 		String result = mvcResult.getResponse().getContentAsString();
