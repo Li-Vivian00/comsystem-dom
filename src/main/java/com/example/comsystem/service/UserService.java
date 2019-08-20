@@ -6,28 +6,24 @@ import java.util.List;
 
 public interface UserService {
 
-    //find all user
-    public List<User> getAllUserInfoService();
+    // userLogin
+    public String userLoginService(User user);
+
 
 //    public User searchUser(String loginId, String password);
 //    public List<User> searchUser();
 
-    public User searchById(String i);
-
-    public List<User>  searchByName(String item, String name);
-
-    // userLogin
-    public String userLoginService(User user);
+//    public User searchById(String i);
 
     // userRegister
     public String userRegisterService(User user);
 
-    // judgeUserLoginid
+    // judge user loginid
     public String judgeUserLoginIdService(String loginId);
 
-    // delete user
-    public void deleteUser(String Id);
+    // judge user phone
+    public String judgeUserPhoneService(String phone);
 
-    // update user
-    public String updateUser(User user);
+    //modify password
+    public String modifyPassword(User user);
 }

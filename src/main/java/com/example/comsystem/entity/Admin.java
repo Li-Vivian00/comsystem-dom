@@ -1,16 +1,23 @@
 package com.example.comsystem.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="admininfo")
 @Data
-public class Admin {
-    @javax.persistence.Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String Id;
+@AllArgsConstructor
+@NoArgsConstructor
+public class Admin implements Serializable {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "Id")
+
+    private Integer Id;
     private String loginid;
     private String adminname;
     private String password;

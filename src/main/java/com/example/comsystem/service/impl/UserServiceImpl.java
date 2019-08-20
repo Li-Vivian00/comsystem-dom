@@ -21,30 +21,14 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserLoginRepository userLoginRepository;
-    @Autowired
-    UserDao userDao;
-    @Autowired
-    UserManageRepository userManageRepository;
-    // find all user
-    @Override
-    public List<User> getAllUserInfoService() {
-        return userLoginRepository.findAll();
-    }
 
     // get one user by loginid
-    @Override
-    public User searchById(String i) {
-        Optional<User> result = userLoginRepository.findById(i);
-        return result.get();
-    }
+//    @Override
+//    public User searchById(String i) {
+//        Optional<User> result = userLoginRepository.findById(i);
+//        return result.get();
+//    }
 
-    // get one user by item
-    @Override
-    public List<User> searchByName(String item, String name) {
-          List<User> result = userDao.searchByName(item, name);
-//        System.out.println(result);
-        return result;
-    }
 
     // user login
     @Override
@@ -52,7 +36,7 @@ public class UserServiceImpl implements UserService {
         String loginid = user.getLoginid();
         String password = user.getPassword();
         List<User> listUser = userLoginRepository.findByUserLoginid(loginid);
-        User result = userLoginRepository.userLoginRep(loginid, password);
+        User result = userLoginRepository.userLogin(loginid, password);
         if (listUser.size() <= 0) {
             return "loginid not exist";
         } else if (result == null) {
@@ -65,7 +49,6 @@ public class UserServiceImpl implements UserService {
     // user register save user
     @Override
     public String userRegisterService(User user) {
-        System.out.println(user);
         try {
             User result = userLoginRepository.save(user);
             return "success";
@@ -75,46 +58,51 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    // judge user login whether exist
+    // judge user loginid whether exist
     @Override
     public String judgeUserLoginIdService(String loginId) {
         try {
             List<User> listUser = userLoginRepository.findByUserLoginid(loginId);
             if (listUser.size() > 0) {
-                return "fail to register";
+                return "loginid is exist";
             }
             return "success";
         } catch (Exception e) {
             e.printStackTrace();
-            return "fail to register";
+            return "loginid is exist";
         }
     }
 
+    // judge user phone whether exist
     @Override
-    public void deleteUser(String Id) {
-        List<User> users = new ArrayList<>();
-        String [] ids = StringUtil.analysisArrayStr(Id);
-        for (String id : ids) {
-            Integer idI = Integer.parseInt(id);
-            User user = new User();
-            user.setId(idI);
-            users.add(user);
-        }
+    public String judgeUserPhoneService(String phone) {
         try {
-            userManageRepository.deleteInBatch(users);
+            List<User> listUser = userLoginRepository.findByUserPhone(phone);
+            if (listUser.size() > 0) {
+                return "phone is exist";
+            }
+            return "phone not exist";
         } catch (Exception e) {
             e.printStackTrace();
+            return "phone is exist";
         }
-   }
+    }
 
+    //    //modify password
     @Override
-    public String updateUser(User user) {
+    public String modifyPassword(User user) {
         try {
-            User result = userManageRepository.save(user);
+            String phone = user.getPhone();
+            String password = user.getPassword();
+            Integer result = userLoginRepository.userModifyPassword(password, phone);
+            if (result == null || result == 0) {
+                return "fail to update password";
+            }
             return "success";
         } catch (Exception e) {
             e.printStackTrace();
-            return "fail to update";
+            return "success";
         }
     }
+
 }

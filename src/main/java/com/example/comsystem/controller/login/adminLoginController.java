@@ -12,9 +12,23 @@ public class adminLoginController {
     @Autowired
     AdminService adminService;
 
+    //admin login
     @RequestMapping(value = "/adminlogin",method = RequestMethod.POST)
     public String adminLogin(@RequestBody Admin admin) {
         String result =adminService.adminLoginService(admin);
+        return result;
+    }
+
+    //  judge phone
+    @RequestMapping(value = "/getAdminPhone",method = RequestMethod.GET)
+    public String judgeUserPhone(@RequestParam(name = "phone") String phone) {
+        String result =adminService.judgeUserPhoneService(phone);
+        return result;
+    }
+    // modify password
+    @RequestMapping(value = "/modifyPassword", method = RequestMethod.POST)
+    public String modifyPassword(@RequestBody Admin user) {
+        String result = adminService.modifyPassword(user);
         return result;
     }
 }

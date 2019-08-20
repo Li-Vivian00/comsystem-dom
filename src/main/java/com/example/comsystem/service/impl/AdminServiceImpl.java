@@ -17,6 +17,7 @@ public class AdminServiceImpl implements AdminService {
     AdminLoginRepository adminLoginRepository;
     @Autowired
     AdminManageRepository adminManageRepository;
+
     // admin login
     @Override
     public String adminLoginService(Admin admin) {
@@ -26,20 +27,43 @@ public class AdminServiceImpl implements AdminService {
         Admin result = adminLoginRepository.AdminLoginRep(loginid, password);
         if (listUser.size() <= 0) {
             return "loginid not exist";
-        }
-        else if (result == null) {
+        } else if (result == null) {
             return "password not correct";
-        }
-        else {
+        } else {
             return "success";
         }
     }
 
-
-    // find all admin
+    // judge admin phone whether exist
     @Override
-    public List<Admin> getAllAdminInfoService() {
-        return adminManageRepository.findAll();
+    public String judgeUserPhoneService(String phone) {
+        try {
+            List<Admin> listUser = adminLoginRepository.findByAdminPhone(phone);
+            if (listUser.size() > 0) {
+                return "phone is exist";
+            }
+            return "phone not exist";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "phone is exist";
+        }
     }
+
+    @Override
+    public String modifyPassword(Admin user) {
+        try {
+            String phone = user.getPhone();
+            String password = user.getPassword();
+            Integer result = adminLoginRepository.adminModifyPassword(password, phone);
+            if (result == null || result == 0) {
+                return "fail to update password";
+            }
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "success";
+        }
+    }
+
 
 }

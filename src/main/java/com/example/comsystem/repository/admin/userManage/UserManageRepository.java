@@ -9,8 +9,5 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 public interface UserManageRepository extends JpaRepository<User, String> {
-//    @Transactional
-//    @Modifying
-//    @Query(value = "delete from userinfo where id in ?1", nativeQuery = true)
-//    void deleteByIds(List<User> id);
+
 }

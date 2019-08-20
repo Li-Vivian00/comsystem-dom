@@ -19,10 +19,10 @@ public class User implements Serializable {
     private String loginid;
     private String username;
     private String password;
-    private String repeatpass;
     private String sex;
     private String phone;
     private String email;
     private String card;
-    private String login_id;
+    private String date;
+    private String room_id = "1";
 }

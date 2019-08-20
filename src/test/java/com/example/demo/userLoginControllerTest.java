@@ -3,9 +3,8 @@ package com.example.demo;
 import com.alibaba.fastjson.JSONObject;
 import com.example.comsystem.DemoApplication;
 import com.example.comsystem.repository.login.UserLoginRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.SerializationFeature;
+
+import com.example.comsystem.service.UserService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,15 +25,12 @@ import org.springframework.web.context.WebApplicationContext;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
-public class DemoApplicationTests {
-	@MockBean
-	UserLoginRepository userLoginRepository;
+public class userLoginControllerTest {
+//	@MockBean
+//	UserLoginRepository userLoginRepository;
+
 	@Autowired
 	private WebApplicationContext webApplicationContext;
 	private MockMvc mockMvc;
@@ -49,10 +45,10 @@ public class DemoApplicationTests {
 		Map<String,String> map = new HashMap<>();
 		map.put("loginid","username1");
 		map.put("password","password");
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
-		ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
-		String requestJson=ow.writeValueAsString(map );
+
+		//  Object turn into Json String
+		String requestJson = JSONObject.toJSONString(map);
+
 		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post(("/api/userLogin/login"))
 				.contentType(MediaType.APPLICATION_JSON_UTF8)
 				.content(requestJson))
@@ -62,7 +58,10 @@ public class DemoApplicationTests {
 		int status = mvcResult.getResponse().getStatus();
 		String result = mvcResult.getResponse().getContentAsString();
 		Assert.assertEquals(200,status);
-		Assert.assertNotNull(result);
+		Assert.assertEquals("password not correct",result);
+//		Assert.assertNotNull(result);
 	}
+
+
 
 }
