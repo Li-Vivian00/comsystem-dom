@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> searchByItem(String item, String name) {
-        String sql = "select * from userinfo where " + item + " = '" + name + "'";
+        String sql = "select * from user_info where " + item + " = '" + name + "'";
         Query query = em.createNativeQuery(sql,User.class);
         return query.getResultList();
     }

@@ -16,7 +16,7 @@ public class AdminDaoImpl implements AdminDao {
 
     @Override
     public List<Admin> searchByItem(String item, String name) {
-        String sql = "select * from admininfo where " + item + " = '" + name + "'";
+        String sql = "select * from admin_info where " + item + " = '" + name + "'";
         Query query = em.createNativeQuery(sql, Admin.class);
         return query.getResultList();
     }

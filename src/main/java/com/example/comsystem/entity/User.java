@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-@Table(name="userinfo")
+@Table(name="user_info")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,6 +23,6 @@ public class User implements Serializable {
     private String phone;
     private String email;
     private String card;
-    private String date;
+    private String stay_date;
     private String room_id = "1";
 }

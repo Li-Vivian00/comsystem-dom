@@ -1,13 +1,13 @@
 server:
   port: 3000
-#���ݿ�����
+
 spring:
   datasource:
     username: root
     password:
-    url: jdbc:mysql://127.0.0.1:3306/comsystem?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&useLegacyDatetimeCode=false
+    url: jdbc:mysql://127.0.0.1:3306/comsystem?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
-  #JPA����
+  #JPA
   jpa:
     hibernate:
       ddl-auto: update
