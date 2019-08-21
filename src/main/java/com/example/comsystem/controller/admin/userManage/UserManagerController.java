@@ -1,9 +1,8 @@
 package com.example.comsystem.controller.admin.userManage;
 
 
-import com.example.comsystem.entity.User;
+import com.example.comsystem.entity.UserInfo;
 import com.example.comsystem.service.UserManageService;
-import com.example.comsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +17,8 @@ public class UserManagerController {
 
     // find all user
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
-    public List<User> getAllUserInfo() {
-        List<User> result = userManageService.getAllUserInfoService();
+    public List<UserInfo> getAllUserInfo() {
+        List<UserInfo> result = userManageService.getAllUserInfoService();
         return result;
     }
 
@@ -32,16 +31,16 @@ public class UserManagerController {
 
     // update user
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-    public  String deleteUser(@RequestBody User user) {
-        System.out.println(user);
-        String result = userManageService.updateUser(user);
+    public  String deleteUser(@RequestBody UserInfo userInfo) {
+        System.out.println(userInfo);
+        String result = userManageService.updateUser(userInfo);
         return result;
     }
 
     //get one user info
     @RequestMapping(value = "/getOneUser", method = RequestMethod.GET)
-    public  List<User> getOneUser(@RequestParam(value = "item") String item, @RequestParam(value = "name") String name) {
-        List<User> result = userManageService.searchByItem(item, name);
+    public  List<UserInfo> getOneUser(@RequestParam(value = "item") String item, @RequestParam(value = "name") String name) {
+        List<UserInfo> result = userManageService.searchByItem(item, name);
         return result;
     }
 

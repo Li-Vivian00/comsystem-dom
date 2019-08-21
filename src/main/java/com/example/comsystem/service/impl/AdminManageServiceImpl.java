@@ -2,8 +2,7 @@ package com.example.comsystem.service.impl;
 
 
 import com.example.comsystem.dao.AdminDao;
-import com.example.comsystem.dao.UserDao;
-import com.example.comsystem.entity.Admin;
+import com.example.comsystem.entity.AdminInfo;
 import com.example.comsystem.repository.admin.userManage.AdminManageRepository;
 import com.example.comsystem.service.AdminManageService;
 import com.example.comsystem.util.StringUtil;
@@ -22,25 +21,25 @@ public class AdminManageServiceImpl implements AdminManageService {
 
     // find all user
     @Override
-    public List<Admin> getAllUserInfoService() {
+    public List<AdminInfo> getAllUserInfoService() {
         return adminManageRepository.findAll();
     }
 
     // find user info by item
     @Override
-    public List<Admin> searchByItem(String item, String name) {
-        List<Admin> result = adminDao.searchByItem(item, name);
+    public List<AdminInfo> searchByItem(String item, String name) {
+        List<AdminInfo> result = adminDao.searchByItem(item, name);
         return result;
     }
 
     // delete user
     @Override
     public void deleteUser(String Id) {
-        List<Admin> users = new ArrayList<>();
+        List<AdminInfo> users = new ArrayList<>();
         String [] ids = StringUtil.analysisArrayStr(Id);
         for (String id : ids) {
             Integer idI = Integer.parseInt(id);
-            Admin user = new Admin();
+            AdminInfo user = new AdminInfo();
             user.setId(idI);
             users.add(user);
         }
@@ -53,9 +52,9 @@ public class AdminManageServiceImpl implements AdminManageService {
 
     // update user
     @Override
-    public String updateUser(Admin user) {
+    public String updateUser(AdminInfo user) {
         try {
-            Admin result = adminManageRepository.save(user);
+            AdminInfo result = adminManageRepository.save(user);
             return "success";
         } catch (Exception e) {
             e.printStackTrace();

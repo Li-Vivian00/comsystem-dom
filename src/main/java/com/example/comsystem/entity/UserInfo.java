@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-@Table(name="user_info")
+@Table(name="userinfo")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements Serializable {
+public class UserInfo implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "Id")
@@ -24,5 +24,5 @@ public class User implements Serializable {
     private String email;
     private String card;
     private String stay_date;
-    private String room_id = "1";
+    private String room_id;
 }

@@ -1,10 +1,7 @@
 package com.example.comsystem.dao.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.example.comsystem.dao.UserDao;
-import com.example.comsystem.entity.User;
-import org.hibernate.SQLQuery;
-import org.hibernate.transform.Transformers;
+import com.example.comsystem.entity.UserInfo;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -19,9 +16,9 @@ public class UserDaoImpl implements UserDao {
     private EntityManager em;
 
     @Override
-    public List<User> searchByItem(String item, String name) {
-        String sql = "select * from user_info where " + item + " = '" + name + "'";
-        Query query = em.createNativeQuery(sql,User.class);
+    public List<UserInfo> searchByItem(String item, String name) {
+        String sql = "select * from userinfo where " + item + " = '" + name + "'";
+        Query query = em.createNativeQuery(sql, UserInfo.class);
         return query.getResultList();
     }
 

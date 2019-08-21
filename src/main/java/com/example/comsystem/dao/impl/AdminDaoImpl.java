@@ -1,7 +1,7 @@
 package com.example.comsystem.dao.impl;
 
 import com.example.comsystem.dao.AdminDao;
-import com.example.comsystem.entity.Admin;
+import com.example.comsystem.entity.AdminInfo;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -15,9 +15,9 @@ public class AdminDaoImpl implements AdminDao {
     private EntityManager em;
 
     @Override
-    public List<Admin> searchByItem(String item, String name) {
-        String sql = "select * from admin_info where " + item + " = '" + name + "'";
-        Query query = em.createNativeQuery(sql, Admin.class);
+    public List<AdminInfo> searchByItem(String item, String name) {
+        String sql = "select * from admininfo where " + item + " = '" + name + "'";
+        Query query = em.createNativeQuery(sql, AdminInfo.class);
         return query.getResultList();
     }
 }

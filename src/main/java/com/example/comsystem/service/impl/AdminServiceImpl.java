@@ -1,8 +1,7 @@
 package com.example.comsystem.service.impl;
 
-import com.example.comsystem.entity.Admin;
+import com.example.comsystem.entity.AdminInfo;
 import com.example.comsystem.repository.admin.userManage.AdminManageRepository;
-import com.example.comsystem.repository.admin.userManage.UserManageRepository;
 import com.example.comsystem.repository.login.AdminLoginRepository;
 import com.example.comsystem.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +19,11 @@ public class AdminServiceImpl implements AdminService {
 
     // admin login
     @Override
-    public String adminLoginService(Admin admin) {
-        String loginid = admin.getLoginid();
-        String password = admin.getPassword();
-        List<Admin> listUser = adminLoginRepository.findByAdminLoginid(loginid);
-        Admin result = adminLoginRepository.AdminLoginRep(loginid, password);
+    public String adminLoginService(AdminInfo adminInfo) {
+        String loginid = adminInfo.getLoginid();
+        String password = adminInfo.getPassword();
+        List<AdminInfo> listUser = adminLoginRepository.findByAdminLoginid(loginid);
+        AdminInfo result = adminLoginRepository.AdminLoginRep(loginid, password);
         if (listUser.size() <= 0) {
             return "loginid not exist";
         } else if (result == null) {
@@ -38,7 +37,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public String judgeUserPhoneService(String phone) {
         try {
-            List<Admin> listUser = adminLoginRepository.findByAdminPhone(phone);
+            List<AdminInfo> listUser = adminLoginRepository.findByAdminPhone(phone);
             if (listUser.size() > 0) {
                 return "phone is exist";
             }
@@ -50,7 +49,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public String modifyPassword(Admin user) {
+    public String modifyPassword(AdminInfo user) {
         try {
             String phone = user.getPhone();
             String password = user.getPassword();

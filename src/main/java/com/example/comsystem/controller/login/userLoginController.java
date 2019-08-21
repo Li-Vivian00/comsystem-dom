@@ -1,6 +1,6 @@
 package com.example.comsystem.controller.login;
 
-import com.example.comsystem.entity.User;
+import com.example.comsystem.entity.UserInfo;
 import com.example.comsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,15 +14,15 @@ public class userLoginController {
 
     // user login
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String userLogin(@RequestBody User user) {
-        String result =userService.userLoginService(user);
+    public String userLogin(@RequestBody UserInfo userInfo) {
+        String result =userService.userLoginService(userInfo);
         return result;
     }
 
     // user register
     @RequestMapping(value = "/addUser",method = RequestMethod.POST)
-    public String userRegister(@RequestBody User user) {
-        String result =userService.userRegisterService(user);
+    public String userRegister(@RequestBody UserInfo userInfo) {
+        String result =userService.userRegisterService(userInfo);
         return result;
     }
 
@@ -42,8 +42,8 @@ public class userLoginController {
 
     // modify password
     @RequestMapping(value = "/modifyPassword", method = RequestMethod.POST)
-    public String modifyPassword(@RequestBody User user) {
-        String result = userService.modifyPassword(user);
+    public String modifyPassword(@RequestBody UserInfo userInfo) {
+        String result = userService.modifyPassword(userInfo);
         return result;
     }
 }

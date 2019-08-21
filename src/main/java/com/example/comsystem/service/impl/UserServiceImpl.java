@@ -1,20 +1,12 @@
 package com.example.comsystem.service.impl;
 
-import com.alibaba.fastjson.JSONArray;
-import com.example.comsystem.dao.UserDao;
-import com.example.comsystem.entity.Admin;
-import com.example.comsystem.entity.User;
-import com.example.comsystem.repository.admin.userManage.UserManageRepository;
+import com.example.comsystem.entity.UserInfo;
 import com.example.comsystem.repository.login.UserLoginRepository;
 import com.example.comsystem.service.UserService;
-import com.example.comsystem.util.StringUtil;
-import com.mysql.cj.xdevapi.JsonArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -32,12 +24,12 @@ public class UserServiceImpl implements UserService {
 
     // user login
     @Override
-    public String userLoginService(User user) {
-        String loginid = user.getLoginid();
-        String password = user.getPassword();
-        List<User> listUser = userLoginRepository.findByUserLoginid(loginid);
-        User result = userLoginRepository.userLogin(loginid, password);
-        if (listUser.size() <= 0) {
+    public String userLoginService(UserInfo userInfo) {
+        String loginid = userInfo.getLoginid();
+        String password = userInfo.getPassword();
+        List<UserInfo> listUserInfo = userLoginRepository.findByUserLoginid(loginid);
+        UserInfo result = userLoginRepository.userLogin(loginid, password);
+        if (listUserInfo.size() <= 0) {
             return "loginid not exist";
         } else if (result == null) {
             return "password not correct";
@@ -48,9 +40,9 @@ public class UserServiceImpl implements UserService {
 
     // user register save user
     @Override
-    public String userRegisterService(User user) {
+    public String userRegisterService(UserInfo userInfo) {
         try {
-            User result = userLoginRepository.save(user);
+            UserInfo result = userLoginRepository.save(userInfo);
             return "success";
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,8 +54,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public String judgeUserLoginIdService(String loginId) {
         try {
-            List<User> listUser = userLoginRepository.findByUserLoginid(loginId);
-            if (listUser.size() > 0) {
+            List<UserInfo> listUserInfo = userLoginRepository.findByUserLoginid(loginId);
+            if (listUserInfo.size() > 0) {
                 return "loginid is exist";
             }
             return "success";
@@ -77,8 +69,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public String judgeUserPhoneService(String phone) {
         try {
-            List<User> listUser = userLoginRepository.findByUserPhone(phone);
-            if (listUser.size() > 0) {
+            List<UserInfo> listUserInfo = userLoginRepository.findByUserPhone(phone);
+            if (listUserInfo.size() > 0) {
                 return "phone is exist";
             }
             return "phone not exist";
@@ -90,10 +82,10 @@ public class UserServiceImpl implements UserService {
 
     //    //modify password
     @Override
-    public String modifyPassword(User user) {
+    public String modifyPassword(UserInfo userInfo) {
         try {
-            String phone = user.getPhone();
-            String password = user.getPassword();
+            String phone = userInfo.getPhone();
+            String password = userInfo.getPassword();
             Integer result = userLoginRepository.userModifyPassword(password, phone);
             if (result == null || result == 0) {
                 return "fail to update password";

@@ -1,9 +1,8 @@
 package com.example.comsystem.service.impl;
 
 import com.example.comsystem.dao.UserDao;
-import com.example.comsystem.entity.User;
+import com.example.comsystem.entity.UserInfo;
 import com.example.comsystem.repository.admin.userManage.UserManageRepository;
-import com.example.comsystem.repository.login.UserLoginRepository;
 import com.example.comsystem.service.UserManageService;
 import com.example.comsystem.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,30 +22,30 @@ public class UserManageServiceImpl implements UserManageService {
 
     // find all user
     @Override
-    public List<User> getAllUserInfoService() {
+    public List<UserInfo> getAllUserInfoService() {
         return userManageRepository.findAll();
     }
 
     // find user info by item
     @Override
-    public List<User> searchByItem(String item, String name) {
-        List<User> result = userDao.searchByItem(item, name);
+    public List<UserInfo> searchByItem(String item, String name) {
+        List<UserInfo> result = userDao.searchByItem(item, name);
         return result;
     }
 
     // delete user
     @Override
     public void deleteUser(String Id) {
-        List<User> users = new ArrayList<>();
+        List<UserInfo> userInfos = new ArrayList<>();
         String [] ids = StringUtil.analysisArrayStr(Id);
         for (String id : ids) {
             Integer idI = Integer.parseInt(id);
-            User user = new User();
-            user.setId(idI);
-            users.add(user);
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(idI);
+            userInfos.add(userInfo);
         }
         try {
-            userManageRepository.deleteInBatch(users);
+            userManageRepository.deleteInBatch(userInfos);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,9 +53,9 @@ public class UserManageServiceImpl implements UserManageService {
 
     // update user
     @Override
-    public String updateUser(User user) {
+    public String updateUser(UserInfo userInfo) {
         try {
-            User result = userManageRepository.save(user);
+            UserInfo result = userManageRepository.save(userInfo);
             return "success";
         } catch (Exception e) {
             e.printStackTrace();
