@@ -18,12 +18,6 @@ public class PhoneModule implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private String police;
-    private String fire;
-    private String ambulance;
-    private String plane_booking;
-    private String train_booking;
-    private String bus_hotline;
-    private String consumer_complaints;
-    private String weather_forecast;
+    private String item;
+    private String phone;
 }
