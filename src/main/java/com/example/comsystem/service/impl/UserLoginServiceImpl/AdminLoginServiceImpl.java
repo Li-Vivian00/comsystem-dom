@@ -1,21 +1,20 @@
-package com.example.comsystem.service.impl;
+package com.example.comsystem.service.impl.UserLoginServiceImpl;
 
 import com.example.comsystem.entity.AdminInfo;
 import com.example.comsystem.repository.admin.userManage.AdminManageRepository;
 import com.example.comsystem.repository.login.AdminLoginRepository;
-import com.example.comsystem.service.AdminService;
+import com.example.comsystem.service.AdminLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class AdminServiceImpl implements AdminService {
+public class AdminLoginServiceImpl implements AdminLoginService {
 
     @Autowired
     AdminLoginRepository adminLoginRepository;
-    @Autowired
-    AdminManageRepository adminManageRepository;
+
 
     // admin login
     @Override
@@ -61,6 +60,21 @@ public class AdminServiceImpl implements AdminService {
         } catch (Exception e) {
             e.printStackTrace();
             return "success";
+        }
+    }
+
+    @Override
+    public List<AdminInfo> getLoginAdminInfo(String adminLoginId) {
+        try {
+            List<AdminInfo> result = adminLoginRepository.findByAdminLoginid(adminLoginId);
+            if (result != null) {
+                return result;
+            }
+            return null;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 

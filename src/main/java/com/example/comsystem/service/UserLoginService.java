@@ -2,7 +2,7 @@ package com.example.comsystem.service;
 
 import com.example.comsystem.entity.UserInfo;
 
-public interface UserService {
+public interface UserLoginService {
 
     // userLogin
     public String userLoginService(UserInfo userInfo);

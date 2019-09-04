@@ -17,7 +17,8 @@ import java.io.Serializable;
 public class PhoneModule implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "Id")
+    private Integer Id;
     private String item;
     private String phone;
 }

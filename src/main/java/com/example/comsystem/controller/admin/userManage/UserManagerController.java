@@ -18,21 +18,19 @@ public class UserManagerController {
     // find all user
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     public List<UserInfo> getAllUserInfo() {
-        List<UserInfo> result = userManageService.getAllUserInfoService();
+        List<UserInfo> result = userManageService.getAllUserInfo();
         return result;
     }
 
     // delete user by id
     @RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
     public  void deleteUser(@RequestBody String Id) {
-        System.out.println(Id);
         userManageService.deleteUser(Id);
     }
 
     // update user
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-    public  String deleteUser(@RequestBody UserInfo userInfo) {
-        System.out.println(userInfo);
+    public  String updateUser(@RequestBody UserInfo userInfo) {
         String result = userManageService.updateUser(userInfo);
         return result;
     }

@@ -1,4 +1,4 @@
-package com.example.comsystem.service.impl;
+package com.example.comsystem.service.impl.UserManageServiceImpl;
 
 
 import com.example.comsystem.dao.AdminDao;

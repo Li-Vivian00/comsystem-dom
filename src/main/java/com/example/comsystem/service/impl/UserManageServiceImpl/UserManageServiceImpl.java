@@ -1,4 +1,4 @@
-package com.example.comsystem.service.impl;
+package com.example.comsystem.service.impl.UserManageServiceImpl;
 
 import com.example.comsystem.dao.UserDao;
 import com.example.comsystem.entity.UserInfo;
@@ -22,7 +22,7 @@ public class UserManageServiceImpl implements UserManageService {
 
     // find all user
     @Override
-    public List<UserInfo> getAllUserInfoService() {
+    public List<UserInfo> getAllUserInfo() {
         return userManageRepository.findAll();
     }
 

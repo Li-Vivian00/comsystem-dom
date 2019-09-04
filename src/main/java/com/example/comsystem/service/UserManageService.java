@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface UserManageService {
 
-    //find all user
-    public List<UserInfo> getAllUserInfoService();
+    // find all user
+    public List<UserInfo> getAllUserInfo();
 
     // find user info by item
     public List<UserInfo>  searchByItem(String item, String name);

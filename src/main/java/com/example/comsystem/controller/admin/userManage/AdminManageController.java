@@ -25,7 +25,6 @@ public class AdminManageController {
     // delete user by id
     @RequestMapping(value = "/deleteAdmin", method = RequestMethod.POST)
     public  void deleteUser(@RequestBody String Id) {
-        System.out.println(Id);
         adminManageService.deleteUser(Id);
     }
 

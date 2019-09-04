@@ -2,7 +2,7 @@ package com.example.demo;
 
 import com.example.comsystem.DemoApplication;
 import com.example.comsystem.entity.UserInfo;
-import com.example.comsystem.service.UserService;
+import com.example.comsystem.service.UserLoginService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 public class UserInfoServiceImplTest {
     @Autowired
-    UserService userService;
+    UserLoginService userLoginService;
 //    @MockBean
 //    UserLoginRepository userLoginRepository;
 
@@ -30,7 +30,7 @@ public class UserInfoServiceImplTest {
 
     @Test
     public void test_userLoginService(){
-        String result = userService.userLoginService(userInfo);
+        String result = userLoginService.userLoginService(userInfo);
         Assert.assertEquals("success",result);
     }
 }
