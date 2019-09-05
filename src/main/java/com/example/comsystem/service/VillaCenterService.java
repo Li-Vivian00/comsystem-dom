@@ -10,4 +10,8 @@ public interface VillaCenterService {
 
     // update phone number by item
     String updatePhoneModuleInfo(PhoneModule phoneModule);
+
+    void deletePhoneModule(String Id);
+
+    List<PhoneModule> searchByItem(String item, String phone);
 }

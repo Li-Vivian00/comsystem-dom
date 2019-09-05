@@ -15,6 +15,7 @@ public interface UserManageService {
     // delete user
     public void deleteUser(String Id);
 
-    // update user
+    // update user and add user
     public String updateUser(UserInfo userInfo);
+
 }

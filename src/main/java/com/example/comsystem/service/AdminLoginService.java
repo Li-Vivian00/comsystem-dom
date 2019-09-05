@@ -15,5 +15,9 @@ public interface AdminLoginService {
     //modify password
     public String modifyPassword(AdminInfo user);
 
+    //get login admin info
     List<AdminInfo> getLoginAdminInfo(String adminLoginId);
+
+    //judge admin phone whether exist
+    String judgeAdminLoginId(String loginId);
 }

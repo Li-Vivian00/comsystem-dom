@@ -25,8 +25,22 @@ public class BoadrController {
     // update phone number by item
     @RequestMapping(value = "updatePhoneModuleInfo", method = RequestMethod.POST)
     public String updatePhoneModuleInfo(@RequestBody PhoneModule phoneModule) {
-        System.out.println("---------" + phoneModule);
         String result = villaCenterService.updatePhoneModuleInfo(phoneModule);
+        return result;
+    }
+
+    // delete phone module
+    @RequestMapping(value = "deletePhoneModule", method = RequestMethod.POST)
+    public void deletePhoneModule(@RequestBody String Id) {
+        System.out.println(Id);
+        villaCenterService.deletePhoneModule(Id);
+    }
+
+    //get one user info
+    @RequestMapping(value = "/getOnePhoneModule", method = RequestMethod.GET)
+    public  List<PhoneModule> getOnePhoneModule(@RequestParam(value = "item") String item, @RequestParam(value = "phone") String phone)
+    {
+        List<PhoneModule> result = villaCenterService.searchByItem(item, phone);
         return result;
     }
 

@@ -47,6 +47,7 @@ public class AdminLoginServiceImpl implements AdminLoginService {
         }
     }
 
+    //modify password
     @Override
     public String modifyPassword(AdminInfo user) {
         try {
@@ -63,6 +64,7 @@ public class AdminLoginServiceImpl implements AdminLoginService {
         }
     }
 
+    //get login admin info
     @Override
     public List<AdminInfo> getLoginAdminInfo(String adminLoginId) {
         try {
@@ -75,6 +77,21 @@ public class AdminLoginServiceImpl implements AdminLoginService {
         catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    //judge admin phone whether exist
+    @Override
+    public String judgeAdminLoginId(String loginId) {
+        try {
+            List<AdminInfo> result = adminLoginRepository.findByAdminLoginid(loginId);
+            if (result.size() > 0) {
+                return "loginid is exist";
+            }
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "loginid is exist";
         }
     }
 

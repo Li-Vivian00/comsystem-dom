@@ -28,7 +28,7 @@ public class UserManagerController {
         userManageService.deleteUser(Id);
     }
 
-    // update user
+    // update user and add user
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
     public  String updateUser(@RequestBody UserInfo userInfo) {
         String result = userManageService.updateUser(userInfo);
@@ -37,7 +37,8 @@ public class UserManagerController {
 
     //get one user info
     @RequestMapping(value = "/getOneUser", method = RequestMethod.GET)
-    public  List<UserInfo> getOneUser(@RequestParam(value = "item") String item, @RequestParam(value = "name") String name) {
+    public  List<UserInfo> getOneUser(@RequestParam(value = "item") String item, @RequestParam(value = "name") String name)
+    {
         List<UserInfo> result = userManageService.searchByItem(item, name);
         return result;
     }

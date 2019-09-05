@@ -51,7 +51,7 @@ public class UserManageServiceImpl implements UserManageService {
         }
     }
 
-    // update user
+    // update user and add user
     @Override
     public String updateUser(UserInfo userInfo) {
         try {
@@ -62,5 +62,6 @@ public class UserManageServiceImpl implements UserManageService {
             return "fail to update";
         }
     }
+
 }
 
