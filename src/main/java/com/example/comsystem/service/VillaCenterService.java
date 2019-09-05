@@ -11,7 +11,9 @@ public interface VillaCenterService {
     // update phone number by item
     String updatePhoneModuleInfo(PhoneModule phoneModule);
 
+    // delete phone module
     void deletePhoneModule(String Id);
 
+    //get one phone module
     List<PhoneModule> searchByItem(String item, String phone);
 }

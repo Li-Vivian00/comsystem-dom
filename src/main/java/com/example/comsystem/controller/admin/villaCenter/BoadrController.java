@@ -36,7 +36,7 @@ public class BoadrController {
         villaCenterService.deletePhoneModule(Id);
     }
 
-    //get one user info
+    //get one phone module
     @RequestMapping(value = "/getOnePhoneModule", method = RequestMethod.GET)
     public  List<PhoneModule> getOnePhoneModule(@RequestParam(value = "item") String item, @RequestParam(value = "phone") String phone)
     {

@@ -15,12 +15,13 @@ public class boardServiceImpl implements VillaCenterService {
 
     @Autowired
     BoardRepository boardRepository;
-
+    // find all phone module
     @Override
     public List<PhoneModule> getAllPhoneModuleInfo() {
         return boardRepository.findAll();
     }
 
+    // update phone number by item
     @Override
     public String updatePhoneModuleInfo(PhoneModule phoneModule) {
         try {
@@ -32,6 +33,7 @@ public class boardServiceImpl implements VillaCenterService {
         }
     }
 
+    // delete phone module
     @Override
     public void deletePhoneModule(String Id) {
         List<PhoneModule> phoneModules = new ArrayList<>();
@@ -49,8 +51,10 @@ public class boardServiceImpl implements VillaCenterService {
         }
     }
 
+    //get one phone module
     @Override
     public List<PhoneModule> searchByItem(String item, String phone) {
+        List<PhoneModule> result = phoneModuleDao
         return null;
     }
 }
