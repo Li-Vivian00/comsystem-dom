@@ -15,5 +15,5 @@ public interface VillaCenterService {
     void deletePhoneModule(String Id);
 
     //get one phone module
-    List<PhoneModule> searchByItem(String item, String phone);
+    List<PhoneModule> searchByItem(String item);
 }

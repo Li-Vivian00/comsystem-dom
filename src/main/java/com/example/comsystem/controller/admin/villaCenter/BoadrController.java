@@ -38,9 +38,10 @@ public class BoadrController {
 
     //get one phone module
     @RequestMapping(value = "/getOnePhoneModule", method = RequestMethod.GET)
-    public  List<PhoneModule> getOnePhoneModule(@RequestParam(value = "item") String item, @RequestParam(value = "phone") String phone)
+    public  List<PhoneModule> getOnePhoneModule(@RequestParam(value = "item") String item)
     {
-        List<PhoneModule> result = villaCenterService.searchByItem(item, phone);
+        System.out.println(item);
+        List<PhoneModule> result = villaCenterService.searchByItem(item);
         return result;
     }
 

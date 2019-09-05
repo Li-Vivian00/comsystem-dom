@@ -53,8 +53,16 @@ public class boardServiceImpl implements VillaCenterService {
 
     //get one phone module
     @Override
-    public List<PhoneModule> searchByItem(String item, String phone) {
-        List<PhoneModule> result = phoneModuleDao
-        return null;
+    public List<PhoneModule> searchByItem(String item) {
+        try {
+            List<PhoneModule> result = boardRepository.searchByItem(item);
+            if (result != null) {
+                return result;
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
