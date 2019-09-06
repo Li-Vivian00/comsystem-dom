@@ -1,6 +1,7 @@
 package com.example.comsystem.service;
 
 import com.example.comsystem.entity.PhoneModule;
+import com.example.comsystem.entity.WarningModule;
 
 import java.util.List;
 
@@ -16,4 +17,10 @@ public interface VillaCenterService {
 
     //get one phone module
     List<PhoneModule> searchByItem(String item);
+
+    // find all warning module
+    List<WarningModule> getWarningModuleInfo();
+
+    // update warning module
+    String updateWarningModuleInfo(WarningModule warningModule);
 }

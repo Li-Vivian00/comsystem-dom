@@ -1,7 +1,9 @@
-package com.example.comsystem.service.impl.VillaCenterImpl;
+package com.example.comsystem.service.impl.VillaCenterServiceImpl;
 
 import com.example.comsystem.entity.PhoneModule;
-import com.example.comsystem.repository.admin.villaCenter.BoardRepository;
+import com.example.comsystem.entity.WarningModule;
+import com.example.comsystem.repository.admin.villaCenter.BoardPhoneModuleRepository;
+import com.example.comsystem.repository.admin.villaCenter.BoardWarningModuleRepository;
 import com.example.comsystem.service.VillaCenterService;
 import com.example.comsystem.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,19 +16,22 @@ import java.util.List;
 public class boardServiceImpl implements VillaCenterService {
 
     @Autowired
-    BoardRepository boardRepository;
+    BoardPhoneModuleRepository boardPhoneModuleRepository;
+    @Autowired
+    BoardWarningModuleRepository boardWarningModuleRepository;
+
     // find all phone module
     @Override
     public List<PhoneModule> getAllPhoneModuleInfo() {
-        return boardRepository.findAll();
+        return boardPhoneModuleRepository.findAll();
     }
 
     // update phone number by item
     @Override
     public String updatePhoneModuleInfo(PhoneModule phoneModule) {
         try {
-            PhoneModule result = boardRepository.save(phoneModule);
-            return "success";
+            PhoneModule result = boardPhoneModuleRepository.save(phoneModule);
+                return "success";
         } catch (Exception e) {
             e.printStackTrace();
             return "fail to update";
@@ -45,7 +50,7 @@ public class boardServiceImpl implements VillaCenterService {
             phoneModules.add(phoneModule);
         }
         try {
-            boardRepository.deleteInBatch(phoneModules);
+            boardPhoneModuleRepository.deleteInBatch(phoneModules);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -55,7 +60,7 @@ public class boardServiceImpl implements VillaCenterService {
     @Override
     public List<PhoneModule> searchByItem(String item) {
         try {
-            List<PhoneModule> result = boardRepository.searchByItem(item);
+            List<PhoneModule> result = boardPhoneModuleRepository.searchByItem(item);
             if (result != null) {
                 return result;
             }
@@ -63,6 +68,24 @@ public class boardServiceImpl implements VillaCenterService {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    // find all waining module
+    @Override
+    public List<WarningModule> getWarningModuleInfo() {
+        return boardWarningModuleRepository.findAll();
+    }
+
+    // update warning module
+    @Override
+    public String updateWarningModuleInfo(WarningModule warningModule) {
+        try {
+            WarningModule result = boardWarningModuleRepository.save(warningModule);
+            return "success to update";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail to update";
         }
     }
 }

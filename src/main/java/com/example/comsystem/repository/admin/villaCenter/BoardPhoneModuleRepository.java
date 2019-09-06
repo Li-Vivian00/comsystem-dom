@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface BoardRepository extends JpaRepository<PhoneModule, String> {
+public interface BoardPhoneModuleRepository extends JpaRepository<PhoneModule, String> {
 
     @Query(value = "select * from phone_module where item =?1", nativeQuery = true)
     List<PhoneModule> searchByItem(String item);

@@ -22,7 +22,12 @@ public class AdminManageServiceImpl implements AdminManageService {
     // find all user
     @Override
     public List<AdminInfo> getAllUserInfoService() {
-        return adminManageRepository.findAll();
+        try {
+            return adminManageRepository.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     // find user info by item
