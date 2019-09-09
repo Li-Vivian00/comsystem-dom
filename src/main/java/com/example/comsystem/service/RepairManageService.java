@@ -11,4 +11,7 @@ public interface RepairManageService {
 
     //update repair info
     String updateRepairInfo(RepairManage repairManage);
+
+    //find repair info by item
+    List<RepairManage> getRepairInfoByItem(String item);
 }

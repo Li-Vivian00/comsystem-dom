@@ -21,11 +21,19 @@ public class RepairManageController {
         return result;
     }
 
-    //udpate repair info
+    //update repair info
     @RequestMapping(value = "/updateRepairInfo", method = RequestMethod.POST)
     public String updateRepairInfo(@RequestBody RepairManage repairManage) {
         String result = repairManageService.updateRepairInfo(repairManage);
         System.out.println(result);
+        return result;
+    }
+
+    //find repair info by item
+    @RequestMapping(value = "/getRepairInfoByItem", method = RequestMethod.GET)
+    public List<RepairManage> getRepairInfoByItem(@RequestParam (value = "item")  String item) {
+        System.out.println(item);
+        List<RepairManage> result = repairManageService.getRepairInfoByItem(item);
         return result;
     }
 }

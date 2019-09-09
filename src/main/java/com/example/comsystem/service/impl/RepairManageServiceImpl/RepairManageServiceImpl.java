@@ -29,11 +29,24 @@ public class RepairManageServiceImpl implements RepairManageService {
     public String updateRepairInfo(RepairManage repairManage) {
         try {
             RepairManage result = repairManageRepository.save(repairManage);
-            System.out.println("------" + result);
             return "success to update";
         } catch (Exception e) {
             e.printStackTrace();
             return "fail to update";
+        }
+    }
+
+    @Override
+    public List<RepairManage> getRepairInfoByItem(String item) {
+        try {
+            List<RepairManage> result = repairManageRepository.getRepairInfoByItem(item);
+            if (result != null) {
+                return result;
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
