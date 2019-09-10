@@ -40,6 +40,7 @@ public class RepairManageServiceImpl implements RepairManageService {
         }
     }
 
+    //find repair info by item
     @Override
     public List<RepairManage> getRepairInfoByItem(String item) {
         try {
@@ -54,10 +55,39 @@ public class RepairManageServiceImpl implements RepairManageService {
         }
     }
 
+    //find all opinion info
     @Override
     public List<OpinionManage> getAllOpinionInfo() {
         try {
             return opinionManageRepository.findAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    //update opinion info
+    @Override
+    public String updateOpinionInfo(OpinionManage opinionManage) {
+        try {
+            System.out.println(opinionManage);
+            OpinionManage result = opinionManageRepository.save(opinionManage);
+            return "success to update";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail to update";
+        }
+    }
+
+    //find opinion info by item
+    @Override
+    public List<OpinionManage> getOpinionInfoByItem(String item) {
+        try {
+            List<OpinionManage> result = opinionManageRepository.getOpinionInfoByItem(item);
+            if (result != null) {
+                return result;
+            }
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
             return null;

@@ -16,5 +16,12 @@ public interface RepairManageService {
     //find repair info by item
     List<RepairManage> getRepairInfoByItem(String item);
 
+    // find all opinion info
     List<OpinionManage> getAllOpinionInfo();
+
+    //update opinion info
+    String updateOpinionInfo(OpinionManage opinionManage);
+
+    //find opinion info by item
+    List<OpinionManage> getOpinionInfoByItem(String item);
 }
