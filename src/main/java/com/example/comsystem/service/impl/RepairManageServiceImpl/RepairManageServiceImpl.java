@@ -1,6 +1,8 @@
 package com.example.comsystem.service.impl.RepairManageServiceImpl;
 
+import com.example.comsystem.entity.OpinionManage;
 import com.example.comsystem.entity.RepairManage;
+import com.example.comsystem.repository.admin.repairManage.OpinionManageRepository;
 import com.example.comsystem.repository.admin.repairManage.RepairManageRepository;
 import com.example.comsystem.service.RepairManageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,8 @@ public class RepairManageServiceImpl implements RepairManageService {
 
     @Autowired
     RepairManageRepository repairManageRepository;
+    @Autowired
+    OpinionManageRepository opinionManageRepository;
 
     @Override
     public List<RepairManage> getAllRepairInfo() {
@@ -44,6 +48,16 @@ public class RepairManageServiceImpl implements RepairManageService {
                 return result;
             }
             return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<OpinionManage> getAllOpinionInfo() {
+        try {
+            return opinionManageRepository.findAll();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

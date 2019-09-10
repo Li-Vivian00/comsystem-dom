@@ -1,5 +1,6 @@
 package com.example.comsystem.service;
 
+import com.example.comsystem.entity.OpinionManage;
 import com.example.comsystem.entity.RepairManage;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface RepairManageService {
 
     //find repair info by item
     List<RepairManage> getRepairInfoByItem(String item);
+
+    List<OpinionManage> getAllOpinionInfo();
 }

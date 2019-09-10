@@ -1,5 +1,6 @@
 package com.example.comsystem.controller.admin.repairManage;
 
+import com.example.comsystem.entity.OpinionManage;
 import com.example.comsystem.entity.RepairManage;
 import com.example.comsystem.service.RepairManageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,13 @@ public class RepairManageController {
     public List<RepairManage> getRepairInfoByItem(@RequestParam (value = "item")  String item) {
         System.out.println(item);
         List<RepairManage> result = repairManageService.getRepairInfoByItem(item);
+        return result;
+    }
+
+    //find all repair info
+    @RequestMapping(value = "/getAllOpinionInfo", method = RequestMethod.GET)
+    public List<OpinionManage> getAllOpinionInfo() {
+        List<OpinionManage> result = repairManageService.getAllOpinionInfo();
         return result;
     }
 }
