@@ -20,7 +20,7 @@ public interface RepairManageService {
     List<OpinionManage> getAllOpinionInfo();
 
     //update opinion info
-    String updateOpinionInfo(OpinionManage opinionManage);
+    String updateOpinionInfo(String status, String answer_content, String Id);
 
     //find opinion info by item
     List<OpinionManage> getOpinionInfoByItem(String item);

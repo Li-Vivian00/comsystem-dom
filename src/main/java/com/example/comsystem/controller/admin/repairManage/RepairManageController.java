@@ -32,7 +32,7 @@ public class RepairManageController {
 
     //find repair info by item
     @RequestMapping(value = "/getRepairInfoByItem", method = RequestMethod.GET)
-    public List<RepairManage> getRepairInfoByItem(@RequestParam (value = "item")  String item) {
+    public List<RepairManage> getRepairInfoByItem(@RequestParam(value = "item") String item) {
         List<RepairManage> result = repairManageService.getRepairInfoByItem(item);
         return result;
     }
@@ -45,15 +45,16 @@ public class RepairManageController {
     }
 
     //update opinion info
-    @RequestMapping(value = "/updateOpinionInfo", method = RequestMethod.POST)
-    public String updateOpinionInfo(@RequestBody OpinionManage opinionManage) {
-        String result = repairManageService.updateOpinionInfo(opinionManage);
+    @RequestMapping(value = "/updateOpinionInfo", method = RequestMethod.GET)
+    public String updateOpinionInfo(@RequestParam(value = "status") String status, @RequestParam(value = "answer_content") String answer_content, @RequestParam (value = "Id") String Id) {
+        System.out.println(status + answer_content + Id);
+        String result = repairManageService.updateOpinionInfo(status, answer_content, Id);
         return result;
     }
 
     //find opinion info by item
     @RequestMapping(value = "/getOpinionInfoByItem", method = RequestMethod.GET)
-    public List<OpinionManage> getOpinionInfoByItem(@RequestParam (value = "item")  String item) {
+    public List<OpinionManage> getOpinionInfoByItem(@RequestParam(value = "item") String item) {
         List<OpinionManage> result = repairManageService.getOpinionInfoByItem(item);
         return result;
     }

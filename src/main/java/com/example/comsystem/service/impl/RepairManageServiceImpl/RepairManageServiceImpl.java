@@ -1,5 +1,6 @@
 package com.example.comsystem.service.impl.RepairManageServiceImpl;
 
+import com.example.comsystem.dao.AdminDao;
 import com.example.comsystem.entity.OpinionManage;
 import com.example.comsystem.entity.RepairManage;
 import com.example.comsystem.repository.admin.repairManage.OpinionManageRepository;
@@ -17,6 +18,7 @@ public class RepairManageServiceImpl implements RepairManageService {
     RepairManageRepository repairManageRepository;
     @Autowired
     OpinionManageRepository opinionManageRepository;
+
 
     @Override
     public List<RepairManage> getAllRepairInfo() {
@@ -68,10 +70,9 @@ public class RepairManageServiceImpl implements RepairManageService {
 
     //update opinion info
     @Override
-    public String updateOpinionInfo(OpinionManage opinionManage) {
+    public String updateOpinionInfo(String status, String answer_content, String Id) {
         try {
-            System.out.println(opinionManage);
-            OpinionManage result = opinionManageRepository.save(opinionManage);
+            int result = opinionManageRepository.updateOpinionInfo(status, answer_content, Id);
             return "success to update";
         } catch (Exception e) {
             e.printStackTrace();
