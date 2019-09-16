@@ -16,6 +16,9 @@ public interface RepairManageService {
     //find repair info by item
     List<RepairManage> getRepairInfoByItem(String item);
 
+    //delete repair info
+    void deleteRepairInfo(String id);
+
     // find all opinion info
     List<OpinionManage> getAllOpinionInfo();
 
@@ -24,4 +27,7 @@ public interface RepairManageService {
 
     //find opinion info by item
     List<OpinionManage> getOpinionInfoByItem(String item);
+
+    //delete opinion info
+    void deleteOpinionInfo(String id);
 }

@@ -37,6 +37,12 @@ public class RepairManageController {
         return result;
     }
 
+    //delete repair info
+    @RequestMapping(value = "/deleteRepairInfo", method = RequestMethod.POST)
+    public void deleteRepairInfo(@RequestBody String Id) {
+        repairManageService.deleteRepairInfo(Id);
+    }
+
     //find all opinion info
     @RequestMapping(value = "/getAllOpinionInfo", method = RequestMethod.GET)
     public List<OpinionManage> getAllOpinionInfo() {
@@ -57,5 +63,11 @@ public class RepairManageController {
     public List<OpinionManage> getOpinionInfoByItem(@RequestParam(value = "item") String item) {
         List<OpinionManage> result = repairManageService.getOpinionInfoByItem(item);
         return result;
+    }
+
+    //delete opinion info
+    @RequestMapping(value = "/deleteOpinionInfo", method = RequestMethod.POST)
+    public void deleteOpinionInfo(@RequestBody String Id) {
+        repairManageService.deleteOpinionInfo(Id);
     }
 }

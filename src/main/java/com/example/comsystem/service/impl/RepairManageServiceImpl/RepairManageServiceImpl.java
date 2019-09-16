@@ -6,9 +6,11 @@ import com.example.comsystem.entity.RepairManage;
 import com.example.comsystem.repository.admin.repairManage.OpinionManageRepository;
 import com.example.comsystem.repository.admin.repairManage.RepairManageRepository;
 import com.example.comsystem.service.RepairManageService;
+import com.example.comsystem.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -57,6 +59,25 @@ public class RepairManageServiceImpl implements RepairManageService {
         }
     }
 
+    //delete repair info
+    @Override
+    public void deleteRepairInfo(String Id) {
+        List<RepairManage> repairs = new ArrayList<>();
+        String [] ids = StringUtil.analysisArrayStr(Id);
+        for (String id : ids) {
+            Integer idI = Integer.parseInt(id);
+            RepairManage repair = new RepairManage();
+            repair.setId(idI);
+            repairs.add(repair);
+        }
+        try {
+            repairManageRepository.deleteInBatch(repairs);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     //find all opinion info
     @Override
     public List<OpinionManage> getAllOpinionInfo() {
@@ -92,6 +113,25 @@ public class RepairManageServiceImpl implements RepairManageService {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    //delete opinion info
+    @Override
+    public void deleteOpinionInfo(String Id) {
+        List<OpinionManage> opinions = new ArrayList<>();
+        String [] ids = StringUtil.analysisArrayStr(Id);
+        for (String id : ids) {
+            Integer idI = Integer.parseInt(id);
+            OpinionManage opinion = new OpinionManage();
+            opinion.setId(idI);
+            opinions.add(opinion);
+        }
+        try {
+            opinionManageRepository.deleteInBatch(opinions);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
