@@ -19,7 +19,7 @@ public class AdminInfo implements Serializable {
 
     private Integer Id;
     private String loginid;
-    private String adminname;
+    private String username;
     private String password;
     private String sex;
     private String phone;
