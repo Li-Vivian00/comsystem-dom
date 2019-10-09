@@ -82,6 +82,7 @@ public class RepairManageServiceImpl implements RepairManageService {
     @Override
     public List<OpinionManage> getAllOpinionInfo() {
         try {
+            System.out.println(opinionManageRepository.findAll());
             return opinionManageRepository.findAll();
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,7 +106,7 @@ public class RepairManageServiceImpl implements RepairManageService {
     @Override
     public List<OpinionManage> getOpinionInfoByItem(String item) {
         try {
-            List<OpinionManage> result = opinionManageRepository.getOpinionInfoByItem(item);
+            List<OpinionManage> result = opinionManageRepository.getOpinionInfoByStatus(item);
             if (result != null) {
                 return result;
             }

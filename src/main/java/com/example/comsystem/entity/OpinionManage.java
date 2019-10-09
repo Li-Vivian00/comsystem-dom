@@ -18,6 +18,7 @@ public class OpinionManage implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer Id;
+    private String loginid;
     private String username;
     private String date;
     private String phone;

@@ -86,7 +86,7 @@ public class UserLoginServiceImpl implements UserLoginService {
         try {
             String phone = userInfo.getPhone();
             String password = userInfo.getPassword();
-            Integer result = userLoginRepository.userModifyPassword(password, phone);
+            Integer result = userLoginRepository.userModifyPasswordByPhone(password, phone);
             if (result == null || result == 0) {
                 return "fail to update password";
             }

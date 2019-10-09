@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
-public interface UserLoginRepository extends JpaRepository <UserInfo, String> {
+public interface UserLoginRepository extends JpaRepository<UserInfo, String> {
     @Query(value = "select * from userinfo where loginid =?1 and password = ?2", nativeQuery = true)
     UserInfo userLogin(String loginid, String password);
 
@@ -21,5 +21,10 @@ public interface UserLoginRepository extends JpaRepository <UserInfo, String> {
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "update userinfo u set u.password =?1 where u.phone =?2", nativeQuery = true)
-    Integer userModifyPassword (String password, String phone);
+    Integer userModifyPasswordByPhone(String password, String phone);
+
+    @Transactional
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update userinfo u set u.password =?1 where u.loginid =?2", nativeQuery = true)
+    Integer userModifyPasswordByLoginId(String newPass, String loginId);
 }
