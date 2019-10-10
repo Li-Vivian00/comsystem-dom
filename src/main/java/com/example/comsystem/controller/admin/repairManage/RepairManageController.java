@@ -25,7 +25,6 @@ public class RepairManageController {
     //update repair info
     @RequestMapping(value = "/updateRepairInfo", method = RequestMethod.POST)
     public String updateRepairInfo(@RequestBody RepairManage repairManage) {
-        System.out.println(repairManage);
         String result = repairManageService.updateRepairInfo(repairManage);
         return result;
     }
@@ -53,7 +52,6 @@ public class RepairManageController {
     //update opinion info
     @RequestMapping(value = "/updateOpinionInfo", method = RequestMethod.GET)
     public String updateOpinionInfo(@RequestParam(value = "status") String status, @RequestParam(value = "answer_content") String answer_content, @RequestParam (value = "Id") String Id) {
-        System.out.println(status + answer_content + Id);
         String result = repairManageService.updateOpinionInfo(status, answer_content, Id);
         return result;
     }

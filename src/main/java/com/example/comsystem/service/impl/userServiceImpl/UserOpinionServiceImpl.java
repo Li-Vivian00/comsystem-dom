@@ -2,14 +2,14 @@ package com.example.comsystem.service.impl.userServiceImpl;
 
 import com.example.comsystem.entity.OpinionManage;
 import com.example.comsystem.repository.admin.repairManage.OpinionManageRepository;
-import com.example.comsystem.service.UserOnlineService;
+import com.example.comsystem.service.UserOpinionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserOnlineServiceImpl implements UserOnlineService {
+public class UserOpinionServiceImpl implements UserOpinionService {
     @Autowired
     OpinionManageRepository opinionManageRepository;
 
@@ -21,5 +21,16 @@ public class UserOnlineServiceImpl implements UserOnlineService {
             return result;
         }
         return null;
+    }
+
+    @Override
+    public String submitOpinion(OpinionManage opinionManage) {
+        try {
+            OpinionManage result = opinionManageRepository.save(opinionManage);
+            return "success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail to submit";
+        }
     }
 }

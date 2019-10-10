@@ -7,14 +7,14 @@ import java.util.List;
 public interface AdminManageService {
 
     //find all user
-    public List<AdminInfo> getAllUserInfoService();
+    List<AdminInfo> getAllUserInfoService();
 
     // find user info by item
-    public List<AdminInfo>  searchByItem(String item, String name);
+    List<AdminInfo>  searchByItem(String item, String name);
 
     // delete user
-    public void deleteUser(String Id);
+    void deleteUser(String Id);
 
     // update user
-    public String updateUser(AdminInfo user);
+    String updateUser(AdminInfo user);
 }

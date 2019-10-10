@@ -82,7 +82,6 @@ public class RepairManageServiceImpl implements RepairManageService {
     @Override
     public List<OpinionManage> getAllOpinionInfo() {
         try {
-            System.out.println(opinionManageRepository.findAll());
             return opinionManageRepository.findAll();
         } catch (Exception e) {
             e.printStackTrace();

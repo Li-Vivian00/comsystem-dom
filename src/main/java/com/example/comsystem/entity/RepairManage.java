@@ -18,12 +18,14 @@ public class RepairManage implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer Id;
-    private String type;
+    private String repair_type;
     private String loginid;
+    private String username;
     private String phone;
     private String room_id;
     private String problem_description;
     private String sub_time;
     private String status;
     private String remark;
+    private String handle_time;
 }

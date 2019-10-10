@@ -20,12 +20,11 @@ public class OpinionManage implements Serializable {
     private Integer Id;
     private String loginid;
     private String username;
-    private String date;
+    private String submit_date;
     private String phone;
-    private String type;
+    private String complaint_type;
     private String content;
-    private String require;
-    private String emergency_degree;
+    private String suggestion;
     private String status;
     private String answer_content;
 }
