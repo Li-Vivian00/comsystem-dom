@@ -8,5 +8,8 @@ import java.util.List;
 
 public interface RepairManageRepository extends JpaRepository<RepairManage, String> {
     @Query(value = "select * from repair_manage where status =?1", nativeQuery = true)
-    List<RepairManage> getRepairInfoByItem(String item);
+    List<RepairManage> getRepairInfoByStatus(String item);
+
+    @Query(value = "select * from repair_manage where loginid =?1", nativeQuery = true)
+    List<RepairManage> getRepairInfoByLoginId(String loginId);
 }

@@ -27,4 +27,5 @@ public class OpinionManage implements Serializable {
     private String suggestion;
     private String status;
     private String answer_content;
+    private String answer_date;
 }

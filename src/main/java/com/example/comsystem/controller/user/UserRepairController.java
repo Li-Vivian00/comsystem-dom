@@ -12,12 +12,19 @@ import java.util.List;
 @RequestMapping("/api/userRepair")
 public class UserRepairController {
     @Autowired
-    UserRepairService userRepairService
+    UserRepairService userRepairService;
 
     //find user repair Info
     @RequestMapping(value = "/getUserRepairInfo", method = RequestMethod.GET)
-    public List<RepairManage> getUserOpinionInfo(@RequestParam(value = "loginId") String loginId) {
-        List<RepairManage> result = userRepairService.getUserOpinionInfo(loginId);
+    public List<RepairManage> getUserRepairInfo(@RequestParam(value = "loginId") String loginId) {
+        List<RepairManage> result = userRepairService.getUserRepairInfo(loginId);
+        return result;
+    }
+
+    //submitRepair
+    @RequestMapping(value = "/submitRepair", method = RequestMethod.POST)
+    public String submitOpinion(@RequestBody RepairManage repairManage) {
+        String result = userRepairService.submitRepair(repairManage);
         return result;
     }
 }

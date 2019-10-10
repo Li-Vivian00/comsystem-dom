@@ -51,8 +51,8 @@ public class RepairManageController {
 
     //update opinion info
     @RequestMapping(value = "/updateOpinionInfo", method = RequestMethod.GET)
-    public String updateOpinionInfo(@RequestParam(value = "status") String status, @RequestParam(value = "answer_content") String answer_content, @RequestParam (value = "Id") String Id) {
-        String result = repairManageService.updateOpinionInfo(status, answer_content, Id);
+    public String updateOpinionInfo(@RequestParam(value = "status") String status, @RequestParam(value = "answer_content") String answer_content, @RequestParam (value = "Id") String Id, @RequestParam (value = "answer_date") String answerDate) {
+        String result = repairManageService.updateOpinionInfo(status, answer_content, Id, answerDate);
         return result;
     }
 

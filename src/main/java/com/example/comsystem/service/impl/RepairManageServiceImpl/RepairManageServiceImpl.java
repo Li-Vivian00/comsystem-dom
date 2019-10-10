@@ -48,7 +48,7 @@ public class RepairManageServiceImpl implements RepairManageService {
     @Override
     public List<RepairManage> getRepairInfoByItem(String item) {
         try {
-            List<RepairManage> result = repairManageRepository.getRepairInfoByItem(item);
+            List<RepairManage> result = repairManageRepository.getRepairInfoByStatus(item);
             if (result != null) {
                 return result;
             }
@@ -91,9 +91,9 @@ public class RepairManageServiceImpl implements RepairManageService {
 
     //update opinion info
     @Override
-    public String updateOpinionInfo(String status, String answer_content, String Id) {
+    public String updateOpinionInfo(String status, String answer_content, String Id, String answer_date) {
         try {
-            int result = opinionManageRepository.updateOpinionInfo(status, answer_content, Id);
+            int result = opinionManageRepository.updateOpinionInfo(status, answer_content, answer_date, Id);
             return "success to update";
         } catch (Exception e) {
             e.printStackTrace();
