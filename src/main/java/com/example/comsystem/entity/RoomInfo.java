@@ -24,4 +24,5 @@ public class RoomInfo implements Serializable {
     private String room_area;
     private String user_id;
     private String stay_date;
+    private String score;
 }
