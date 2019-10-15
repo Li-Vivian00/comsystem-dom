@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserCenterServiceImpl implements UserCenterService {
+class UserCenterServiceImpl implements UserCenterService {
     @Autowired
     UserLoginRepository userLoginRepository;
 
