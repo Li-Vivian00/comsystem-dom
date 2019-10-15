@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface VillaCenterService {
     // find all phone module
-    public List<PhoneModule> getAllPhoneModuleInfo();
+    List<PhoneModule> getAllPhoneModuleInfo();
 
     // update phone number by item
     String updatePhoneModuleInfo(PhoneModule phoneModule);
