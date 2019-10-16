@@ -29,7 +29,7 @@ public class adminLoginController {
     }
 
     //  judge loginid
-    @RequestMapping(value = "/getAdminLoginid",method = RequestMethod.GET)
+    @RequestMapping(value = "/getAdminLoginid", method = RequestMethod.GET)
     public String judgeAdminLoginId(@RequestParam(name = "loginId") String loginId) {
         String result = adminLoginService.judgeAdminLoginId(loginId);
         return result;

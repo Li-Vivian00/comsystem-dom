@@ -6,14 +6,15 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
-@Table(name="userinfo")
+@Table(name = "userinfo")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserInfo implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer Id;
     private String loginid;

@@ -33,9 +33,10 @@ public class NewsDailyController {
         List<Double> result = dailyNewsService.getAvgScore();
         return result;
     }
+
     // get phone module
     @RequestMapping(value = "/getPhoneModule", method = RequestMethod.GET)
-    public  List<PhoneModule> getPhoneModule() {
+    public List<PhoneModule> getPhoneModule() {
         List<PhoneModule> result = villaCenterService.getAllPhoneModuleInfo();
         return result;
     }

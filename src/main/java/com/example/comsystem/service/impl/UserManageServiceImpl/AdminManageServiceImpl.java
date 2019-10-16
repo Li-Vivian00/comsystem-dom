@@ -41,7 +41,7 @@ public class AdminManageServiceImpl implements AdminManageService {
     @Override
     public void deleteUser(String Id) {
         List<AdminInfo> users = new ArrayList<>();
-        String [] ids = StringUtil.analysisArrayStr(Id);
+        String[] ids = StringUtil.analysisArrayStr(Id);
         for (String id : ids) {
             Integer idI = Integer.parseInt(id);
             AdminInfo user = new AdminInfo();

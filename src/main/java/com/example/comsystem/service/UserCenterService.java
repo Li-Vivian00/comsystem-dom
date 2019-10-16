@@ -9,5 +9,5 @@ public interface UserCenterService {
     List<UserInfo> getUserCenterInfo(String loginId);
 
     //user modifyPass
-    String userModifyPassword(String loginid,String newPass);
+    String userModifyPassword(String loginid, String newPass);
 }

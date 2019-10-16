@@ -73,8 +73,7 @@ public class AdminLoginServiceImpl implements AdminLoginService {
                 return result;
             }
             return null;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

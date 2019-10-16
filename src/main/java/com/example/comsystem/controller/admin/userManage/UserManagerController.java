@@ -24,21 +24,20 @@ public class UserManagerController {
 
     // delete user by id
     @RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
-    public  void deleteUser(@RequestBody String Id) {
+    public void deleteUser(@RequestBody String Id) {
         userManageService.deleteUser(Id);
     }
 
     // update user and add user
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-    public  String updateUser(@RequestBody UserInfo userInfo) {
+    public String updateUser(@RequestBody UserInfo userInfo) {
         String result = userManageService.updateUser(userInfo);
         return result;
     }
 
     //get one user info
     @RequestMapping(value = "/getOneUser", method = RequestMethod.GET)
-    public  List<UserInfo> getOneUser(@RequestParam(value = "item") String item, @RequestParam(value = "name") String name)
-    {
+    public List<UserInfo> getOneUser(@RequestParam(value = "item") String item, @RequestParam(value = "name") String name) {
         List<UserInfo> result = userManageService.searchByItem(item, name);
         return result;
     }

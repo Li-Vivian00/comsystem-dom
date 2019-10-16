@@ -12,6 +12,7 @@ import java.util.List;
 public class DailyNewsServiceImpl implements DailyNewsService {
     @Autowired
     RoomInfoRepository roomInfoRepository;
+
     @Override
     public List<Integer> getCountOfUser() {
         List<Integer> list = new ArrayList<>();

@@ -10,7 +10,7 @@ public interface AdminManageService {
     List<AdminInfo> getAllUserInfoService();
 
     // find user info by item
-    List<AdminInfo>  searchByItem(String item, String name);
+    List<AdminInfo> searchByItem(String item, String name);
 
     // delete user
     void deleteUser(String Id);

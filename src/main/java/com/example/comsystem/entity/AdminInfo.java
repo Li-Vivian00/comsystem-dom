@@ -8,13 +8,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="admininfo")
+@Table(name = "admininfo")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdminInfo implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
 
     private Integer Id;

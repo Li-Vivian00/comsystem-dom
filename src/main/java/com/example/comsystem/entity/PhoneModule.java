@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="phone_module")
+@Table(name = "phone_module")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

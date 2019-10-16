@@ -63,7 +63,7 @@ public class RepairManageServiceImpl implements RepairManageService {
     @Override
     public void deleteRepairInfo(String Id) {
         List<RepairManage> repairs = new ArrayList<>();
-        String [] ids = StringUtil.analysisArrayStr(Id);
+        String[] ids = StringUtil.analysisArrayStr(Id);
         for (String id : ids) {
             Integer idI = Integer.parseInt(id);
             RepairManage repair = new RepairManage();
@@ -72,8 +72,7 @@ public class RepairManageServiceImpl implements RepairManageService {
         }
         try {
             repairManageRepository.deleteInBatch(repairs);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -120,7 +119,7 @@ public class RepairManageServiceImpl implements RepairManageService {
     @Override
     public void deleteOpinionInfo(String Id) {
         List<OpinionManage> opinions = new ArrayList<>();
-        String [] ids = StringUtil.analysisArrayStr(Id);
+        String[] ids = StringUtil.analysisArrayStr(Id);
         for (String id : ids) {
             Integer idI = Integer.parseInt(id);
             OpinionManage opinion = new OpinionManage();
@@ -129,8 +128,7 @@ public class RepairManageServiceImpl implements RepairManageService {
         }
         try {
             opinionManageRepository.deleteInBatch(opinions);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

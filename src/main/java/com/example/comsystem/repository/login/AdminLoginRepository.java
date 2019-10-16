@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
-public interface AdminLoginRepository extends JpaRepository <AdminInfo, String> {
+public interface AdminLoginRepository extends JpaRepository<AdminInfo, String> {
     @Query(value = "select * from admininfo where loginid =?1 and password = ?2", nativeQuery = true)
     AdminInfo AdminLoginRep(String loginid, String password);
 
@@ -21,6 +21,6 @@ public interface AdminLoginRepository extends JpaRepository <AdminInfo, String> 
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "update admininfo u set u.password =?1 where u.phone =?2", nativeQuery = true)
-    Integer adminModifyPassword (String password, String phone);
+    Integer adminModifyPassword(String password, String phone);
 
 }

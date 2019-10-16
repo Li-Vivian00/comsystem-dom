@@ -31,7 +31,7 @@ public class UserInfoServiceImplTest {
     }
 
     @Test
-    public void test_userLoginService() throws Exception{
+    public void test_userLoginService() throws Exception {
         String result = userLoginService.userLoginService(userInfo);
         Assert.assertEquals("password not correct", result);
     }
@@ -43,7 +43,7 @@ public class UserInfoServiceImplTest {
     }
 
     @Test
-    public void judgeUserLoginIdService() throws Exception{
+    public void judgeUserLoginIdService() throws Exception {
         Assert.assertEquals("loginid is exist", userLoginService.judgeUserLoginIdService("username1"));
         Assert.assertEquals("loginid is exist", userLoginService.judgeUserLoginIdService("username"));
         Assert.assertEquals("loginid is exist", userLoginService.judgeUserLoginIdService("login"));

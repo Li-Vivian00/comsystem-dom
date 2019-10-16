@@ -31,7 +31,7 @@ public class boardServiceImpl implements VillaCenterService {
     public String updatePhoneModuleInfo(PhoneModule phoneModule) {
         try {
             PhoneModule result = boardPhoneModuleRepository.save(phoneModule);
-                return "success";
+            return "success";
         } catch (Exception e) {
             e.printStackTrace();
             return "fail to update";
@@ -42,7 +42,7 @@ public class boardServiceImpl implements VillaCenterService {
     @Override
     public void deletePhoneModule(String Id) {
         List<PhoneModule> phoneModules = new ArrayList<>();
-        String [] ids = StringUtil.analysisArrayStr(Id);
+        String[] ids = StringUtil.analysisArrayStr(Id);
         for (String id : ids) {
             Integer idI = Integer.parseInt(id);
             PhoneModule phoneModule = new PhoneModule();

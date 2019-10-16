@@ -10,7 +10,7 @@ public interface UserManageService {
     public List<UserInfo> getAllUserInfo();
 
     // find user info by item
-    public List<UserInfo>  searchByItem(String item, String name);
+    public List<UserInfo> searchByItem(String item, String name);
 
     // delete user
     public void deleteUser(String Id);

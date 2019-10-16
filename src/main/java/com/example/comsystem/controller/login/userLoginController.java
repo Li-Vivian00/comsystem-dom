@@ -13,28 +13,28 @@ public class userLoginController {
     UserLoginService userLoginService;
 
     // user login
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String userLogin(@RequestBody UserInfo userInfo) {
         String result = userLoginService.userLoginService(userInfo);
         return result;
     }
 
     // user register
-    @RequestMapping(value = "/addUser",method = RequestMethod.POST)
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public String userRegister(@RequestBody UserInfo userInfo) {
         String result = userLoginService.userRegisterService(userInfo);
         return result;
     }
 
     //  judge loginid
-    @RequestMapping(value = "/getUserLoginid",method = RequestMethod.GET)
+    @RequestMapping(value = "/getUserLoginid", method = RequestMethod.GET)
     public String judgeUserLoginId(@RequestParam(name = "loginId") String loginId) {
         String result = userLoginService.judgeUserLoginIdService(loginId);
         return result;
     }
 
     //  judge phone
-    @RequestMapping(value = "/getUserPhone",method = RequestMethod.GET)
+    @RequestMapping(value = "/getUserPhone", method = RequestMethod.GET)
     public String judgeUserPhone(@RequestParam(name = "phone") String phone) {
         String result = userLoginService.judgeUserPhoneService(phone);
         return result;

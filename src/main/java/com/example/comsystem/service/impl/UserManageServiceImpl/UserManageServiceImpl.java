@@ -37,7 +37,7 @@ public class UserManageServiceImpl implements UserManageService {
     @Override
     public void deleteUser(String Id) {
         List<UserInfo> userInfos = new ArrayList<>();
-        String [] ids = StringUtil.analysisArrayStr(Id);
+        String[] ids = StringUtil.analysisArrayStr(Id);
         for (String id : ids) {
             Integer idI = Integer.parseInt(id);
             UserInfo userInfo = new UserInfo();

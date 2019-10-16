@@ -62,7 +62,7 @@ public class userLoginControllerTest {
     public void test_judgeUserLoginId() throws Exception {
         MvcResult mvcResultOne = mockMvc.perform(MockMvcRequestBuilders.get(("/api/userLogin/getUserLoginid"))
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .param("loginId","username1"))
+                .param("loginId", "username1"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
@@ -70,7 +70,7 @@ public class userLoginControllerTest {
 
         MvcResult mvcResultTwo = mockMvc.perform(MockMvcRequestBuilders.get(("/api/userLogin/getUserLoginid"))
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .param("loginId","newUserLoinId"))
+                .param("loginId", "newUserLoinId"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
