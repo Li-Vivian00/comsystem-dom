@@ -1,12 +1,8 @@
-package com.example.comsystem.service.impl.userServiceImpl;
+package com.example.comsystem.service.impl.UserServiceImpl;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.example.comsystem.entity.UserInfo;
 import com.example.comsystem.repository.login.UserLoginRepository;
 import com.example.comsystem.service.UserCenterService;
-import com.mysql.cj.xdevapi.JsonArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

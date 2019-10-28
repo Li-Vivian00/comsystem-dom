@@ -1,4 +1,4 @@
-package com.example.comsystem.service.impl.userServiceImpl;
+package com.example.comsystem.service.impl.UserServiceImpl;
 
 import com.example.comsystem.entity.OpinionManage;
 import com.example.comsystem.repository.admin.repairManage.OpinionManageRepository;

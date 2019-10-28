@@ -1,8 +1,6 @@
 package com.example.comsystem.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,8 +8,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "userinfo")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +22,5 @@ public class UserInfo implements Serializable {
     private String card;
     private String stay_date;
     private String room_id;
+    private String payPwd;
 }

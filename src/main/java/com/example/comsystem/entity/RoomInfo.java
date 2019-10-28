@@ -10,8 +10,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "room_info")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 
 public class RoomInfo implements Serializable {
     @Id

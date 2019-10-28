@@ -1,29 +1,30 @@
 package com.example.comsystem.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
+@Table(name = "bill")
 @Data
-@Table(name = "repair_manage")
+@Entity
 
-public class RepairManage implements Serializable {
+public class Bill implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer Id;
-    private String repair_type;
-    private String loginid;
     private String username;
     private String phone;
     private String room_id;
-    private String problem_description;
-    private String sub_time;
+    private String type;
+    private String price;
+    private String count;
+    private String total;
+    private String start_date;
+    private String end_date;
     private String status;
     private String remark;
-    private String handle_time;
+    private String order_date;
+    private String pay_date;
 }
