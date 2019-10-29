@@ -14,6 +14,7 @@ public class Bill implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Integer Id;
+    private String loginid;
     private String username;
     private String phone;
     private String room_id;

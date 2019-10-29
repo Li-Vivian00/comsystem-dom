@@ -18,4 +18,20 @@ public class BillManageServiceImpl implements BillManageService {
         List<Bill> result = billManageRepository.findAll();
         return result;
     }
+
+    @Override
+    public List<Bill> getBillByItem(String item) {
+        List<Bill> result = billManageRepository.getBillByItem(item);
+        if (result != null) {
+            return result;
+        }
+        return null;
+    }
+
+    @Override
+    public List<Bill> getBillByloginId(String loginid) {
+        List<Bill> result = billManageRepository.getBillByloginId(loginid);
+        return result;
+    }
+
 }

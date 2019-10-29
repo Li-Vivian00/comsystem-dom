@@ -6,4 +6,9 @@ import java.util.List;
 
 public interface BillManageService {
     List<Bill> getAllBill();
+
+    List<Bill> getBillByItem(String item);
+
+
+    List<Bill> getBillByloginId(String loginid);
 }
