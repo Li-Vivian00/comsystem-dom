@@ -22,7 +22,7 @@ public class billController {
     }
     //get bill by item
     @RequestMapping(value = "/getBillByItem", method = RequestMethod.GET)
-    public List<Bill> getBillByItem(String item) {
+    public List<Bill> getBillByItem(@RequestParam(value = "value") String item) {
         List<Bill> result = billManageService.getBillByItem(item);
         return result;
     }
@@ -30,6 +30,19 @@ public class billController {
     @RequestMapping(value = "/getBillByloginId", method = RequestMethod.GET)
     public List<Bill> getBillByloginId(@RequestParam(value = "loginid") String loginid) {
         List<Bill> result = billManageService.getBillByloginId(loginid);
+        return result;
+    }
+    //add bill
+    @RequestMapping(value = "/addBill", method = RequestMethod.POST)
+    public String addBill(@RequestBody Bill bill) {
+        String result = billManageService.addBill(bill);
+        return result;
+    }
+
+    //delete bill
+    @RequestMapping(value = "/deleteBill", method = RequestMethod.POST)
+    public String deleteBill(@RequestParam(value = "id") String Id) {
+        String result = billManageService.deleteBill(Id);
         return result;
     }
 }

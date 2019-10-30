@@ -11,4 +11,9 @@ public interface BillManageService {
 
 
     List<Bill> getBillByloginId(String loginid);
+
+    String addBill(Bill bill);
+
+    String deleteBill(String id);
+
 }
