@@ -3,11 +3,9 @@ package com.example.comsystem.service.impl.BillManageServiceImpl;
 import com.example.comsystem.entity.Bill;
 import com.example.comsystem.repository.admin.billManage.BillManageRepository;
 import com.example.comsystem.service.BillManageService;
-import com.example.comsystem.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,7 +22,6 @@ public class BillManageServiceImpl implements BillManageService {
     @Override
     public List<Bill> getBillByItem(String item) {
         List<Bill> result = billManageRepository.getBillByItem(item);
-        System.out.println(result);
         if (result != null) {
             return result;
         }
@@ -55,6 +52,15 @@ public class BillManageServiceImpl implements BillManageService {
             return "succcess to delete";
         }
         return "fail to delete";
+    }
+
+    @Override
+    public List<Bill> getBillById(String id) {
+        List<Bill> result = billManageRepository.getBillById(id);
+        if (result != null) {
+            return result;
+        }
+        return null;
     }
 
 }

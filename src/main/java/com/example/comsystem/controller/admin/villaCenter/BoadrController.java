@@ -33,14 +33,12 @@ public class BoadrController {
     // delete phone module
     @RequestMapping(value = "/deletePhoneModule", method = RequestMethod.POST)
     public void deletePhoneModule(@RequestBody String Id) {
-        System.out.println(Id);
         villaCenterService.deletePhoneModule(Id);
     }
 
     //get one phone module
     @RequestMapping(value = "/getOnePhoneModule", method = RequestMethod.GET)
     public List<PhoneModule> getOnePhoneModule(@RequestParam(value = "item") String item) {
-        System.out.println(item);
         List<PhoneModule> result = villaCenterService.searchByItem(item);
         return result;
     }
@@ -55,7 +53,6 @@ public class BoadrController {
     // update warning module
     @RequestMapping(value = "/updateWarningModuleInfo", method = RequestMethod.POST)
     public String updateWarningModuleInfo(@RequestBody WarningModule warningModule) {
-        System.out.println("---------" + warningModule);
         String result = villaCenterService.updateWarningModuleInfo(warningModule);
         return result;
     }

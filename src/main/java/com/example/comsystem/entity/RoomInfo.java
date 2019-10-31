@@ -14,13 +14,13 @@ import java.io.Serializable;
 public class RoomInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "Id")
-
+    @Column(name = "Id")
+    private String Id;
     private String floor_id;
     private String room_type;
     private String room_id;
     private String room_area;
-    private String user_id;
+    private String loginid;
     private String stay_date;
     private String score;
 }

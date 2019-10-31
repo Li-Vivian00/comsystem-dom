@@ -3,7 +3,6 @@ package com.example.demo;
 
 import com.example.comsystem.DemoApplication;
 import com.example.comsystem.entity.Bill;
-import com.example.comsystem.service.BillManageService;
 import com.example.comsystem.service.impl.BillManageServiceImpl.BillManageServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;

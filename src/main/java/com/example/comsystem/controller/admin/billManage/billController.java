@@ -32,6 +32,13 @@ public class billController {
         List<Bill> result = billManageService.getBillByloginId(loginid);
         return result;
     }
+    //getBillById
+    @RequestMapping(value = "/getBillById", method = RequestMethod.GET)
+    public List<Bill> getBillById(@RequestParam(value = "val") String Id) {
+        List<Bill> result = billManageService.getBillById(Id);
+        return result;
+    }
+
     //add bill
     @RequestMapping(value = "/addBill", method = RequestMethod.POST)
     public String addBill(@RequestBody Bill bill) {
@@ -40,9 +47,10 @@ public class billController {
     }
 
     //delete bill
-    @RequestMapping(value = "/deleteBill", method = RequestMethod.POST)
-    public String deleteBill(@RequestParam(value = "id") String Id) {
-        String result = billManageService.deleteBill(Id);
+    @RequestMapping(value = "/deleteBill")
+    public String deleteBill(@RequestParam(value = "val")  String val) {
+        System.out.println(val);
+        String result = billManageService.deleteBill(val);
         return result;
     }
 }

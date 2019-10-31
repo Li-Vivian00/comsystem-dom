@@ -20,6 +20,9 @@ public interface BillManageRepository extends JpaRepository<Bill, String> {
 
     @Modifying(clearAutomatically = true)
     @Transactional
-    @Query(value = "delete from bill b where b.id=?1", nativeQuery = true)
+    @Query(value = "delete from bill where Id=?1", nativeQuery = true)
     Integer deleteBill(String id);
+
+    @Query(value = "select * from bill where Id =?1", nativeQuery = true)
+    List<Bill> getBillById(String id);
 }
