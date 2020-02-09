@@ -6,6 +6,7 @@ import com.example.comsystem.service.BillManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.SecureRandom;
 import java.util.List;
 
 @Service
@@ -49,7 +50,7 @@ public class BillManageServiceImpl implements BillManageService {
     public String deleteBill(String Id) {
         Integer result = billManageRepository.deleteBill(Id);
         if (result > 0) {
-            return "succcess to delete";
+            return "success to delete";
         }
         return "fail to delete";
     }
@@ -61,6 +62,18 @@ public class BillManageServiceImpl implements BillManageService {
             return result;
         }
         return null;
+    }
+
+    @Override
+    public String updateUserBillStatus(String id, String date) {
+        try {
+            String status = "1";
+            int result = billManageRepository.updateUserBillStatus(id, status, date);
+            return "success to update";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail to update";
+        }
     }
 
 }

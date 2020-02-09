@@ -25,4 +25,9 @@ public interface BillManageRepository extends JpaRepository<Bill, String> {
 
     @Query(value = "select * from bill where Id =?1", nativeQuery = true)
     List<Bill> getBillById(String id);
+
+    @Transactional
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update bill b set b.status =?2, b.pay_date=?3 where b.id=?1", nativeQuery = true)
+    int updateUserBillStatus(String id, String status, String date);
 }

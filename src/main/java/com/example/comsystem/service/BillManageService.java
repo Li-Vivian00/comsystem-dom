@@ -17,4 +17,6 @@ public interface BillManageService {
     String deleteBill(String id);
 
     List<Bill> getBillById(String id);
+
+    String updateUserBillStatus(String id, String date);
 }
