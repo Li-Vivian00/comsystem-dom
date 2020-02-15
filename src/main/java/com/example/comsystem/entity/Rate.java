@@ -19,4 +19,5 @@ public class Rate {
     private String service_attitude;
     private String environmental_assessment;
     private String overall_evaluation;
+    private String is_rate;
 }
