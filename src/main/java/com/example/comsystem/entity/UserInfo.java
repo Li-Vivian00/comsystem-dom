@@ -1,5 +1,6 @@
 package com.example.comsystem.entity;
 
+
 import lombok.Data;
 
 import javax.persistence.*;

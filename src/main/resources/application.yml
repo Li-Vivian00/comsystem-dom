@@ -20,3 +20,15 @@ spring:
   mvc:
     favicon:
       enabled: false
+
+  # email
+  mail:
+    default-encoding: UTF-8
+    host: smtp.qq.com
+    username: 370578047@qq.com
+    password: rkcvspccxaykbhfc
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true

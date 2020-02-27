@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class userLoginControllerTest {
 //	UserLoginRepository userLoginRepository;
 
     @Autowired
-    private WebApplicationContext webApplicationContext;
+    private ConfigurableWebApplicationContext webApplicationContext;
     private MockMvc mockMvc;
 
     @Before
@@ -40,8 +41,8 @@ public class userLoginControllerTest {
     @Test
     public void test_userLoginController() throws Exception {
         Map<String, String> map = new HashMap<>();
-        map.put("loginid", "username1");
-        map.put("password", "password");
+        map.put("loginid", "user1");
+        map.put("password", "user1");
 
         //  Object turn into Json String
         String requestJson = JSONObject.toJSONString(map);
@@ -55,7 +56,7 @@ public class userLoginControllerTest {
         int status = mvcResult.getResponse().getStatus();
         String result = mvcResult.getResponse().getContentAsString();
         Assert.assertEquals(200, status);
-        Assert.assertEquals("password not correct", result);
+        Assert.assertEquals("success", result);
     }
 
     @Test

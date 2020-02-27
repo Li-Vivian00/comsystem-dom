@@ -20,7 +20,7 @@ public interface AdminLoginRepository extends JpaRepository<AdminInfo, String> {
 
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query(value = "update admininfo u set u.password =?1 where u.phone =?2", nativeQuery = true)
-    Integer adminModifyPassword(String password, String phone);
+    @Query(value = "update admininfo u set u.password =?1 where u.email =?2", nativeQuery = true)
+    Integer adminModifyPassword(String password, String email);
 
 }

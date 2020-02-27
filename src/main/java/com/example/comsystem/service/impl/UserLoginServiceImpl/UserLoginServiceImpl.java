@@ -84,9 +84,9 @@ public class UserLoginServiceImpl implements UserLoginService {
     @Override
     public String modifyPassword(UserInfo userInfo) {
         try {
-            String phone = userInfo.getPhone();
+            String email = userInfo.getEmail();
             String password = userInfo.getPassword();
-            Integer result = userLoginRepository.userModifyPasswordByPhone(password, phone);
+            Integer result = userLoginRepository.userModifyPasswordByPhone(password, email);
             if (result == null || result == 0) {
                 return "fail to update password";
             }

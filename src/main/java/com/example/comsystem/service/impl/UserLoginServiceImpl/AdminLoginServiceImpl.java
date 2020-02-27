@@ -51,9 +51,9 @@ public class AdminLoginServiceImpl implements AdminLoginService {
     @Override
     public String modifyPassword(AdminInfo user) {
         try {
-            String phone = user.getPhone();
+            String email = user.getEmail();
             String password = user.getPassword();
-            Integer result = adminLoginRepository.adminModifyPassword(password, phone);
+            Integer result = adminLoginRepository.adminModifyPassword(password, email);
             if (result == null || result == 0) {
                 return "fail to update password";
             }

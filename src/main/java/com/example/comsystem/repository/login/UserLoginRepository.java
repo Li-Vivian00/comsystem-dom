@@ -20,8 +20,8 @@ public interface UserLoginRepository extends JpaRepository<UserInfo, String> {
 
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query(value = "update userinfo u set u.password =?1 where u.phone =?2", nativeQuery = true)
-    Integer userModifyPasswordByPhone(String password, String phone);
+    @Query(value = "update userinfo u set u.password =?1 where u.email =?2", nativeQuery = true)
+    Integer userModifyPasswordByPhone(String password, String email);
 
     @Transactional
     @Modifying(clearAutomatically = true)
