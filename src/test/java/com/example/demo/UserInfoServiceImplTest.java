@@ -44,9 +44,9 @@ public class UserInfoServiceImplTest {
 
     @Test
     public void judgeUserLoginIdService() throws Exception {
-        Assert.assertEquals("loginid is exist", userLoginService.judgeUserLoginIdService("username1"));
-        Assert.assertEquals("loginid is exist", userLoginService.judgeUserLoginIdService("username"));
-        Assert.assertEquals("loginid is exist", userLoginService.judgeUserLoginIdService("login"));
+        Assert.assertEquals("loginid is exist", userLoginService.judgeUserLoginIdService("user1"));
+        Assert.assertEquals("loginid is exist", userLoginService.judgeUserLoginIdService("user2"));
+        Assert.assertEquals("loginid is exist", userLoginService.judgeUserLoginIdService("user3"));
         Assert.assertEquals("success", userLoginService.judgeUserLoginIdService("newLoginId1"));
         Assert.assertEquals("success", userLoginService.judgeUserLoginIdService("newLoginId2"));
         Assert.assertEquals("success", userLoginService.judgeUserLoginIdService("newLoginId3"));

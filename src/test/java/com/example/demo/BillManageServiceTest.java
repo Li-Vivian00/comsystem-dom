@@ -33,4 +33,14 @@ public class BillManageServiceTest {
         Assert.assertNotNull(resultTwo);
 //        Assert.assertNull(resultOne);
     }
+
+    @Test
+    public void test_deleteBill() {
+        String result1 = billManageServiceImpl.deleteBill("9");
+        Assert.assertEquals("fail to delete", result1);
+        String result2 = billManageServiceImpl.deleteBill("8");
+        Assert.assertEquals("success to delete", result2);
+        String result3 = billManageServiceImpl.deleteBill("13");
+        Assert.assertEquals("fail to delete", result1);
+    }
 }

@@ -42,7 +42,7 @@ public class userLoginControllerTest {
     public void test_userLoginController() throws Exception {
         Map<String, String> map = new HashMap<>();
         map.put("loginid", "user1");
-        map.put("password", "user1");
+        map.put("password", "user");
 
         //  Object turn into Json String
         String requestJson = JSONObject.toJSONString(map);
@@ -56,7 +56,7 @@ public class userLoginControllerTest {
         int status = mvcResult.getResponse().getStatus();
         String result = mvcResult.getResponse().getContentAsString();
         Assert.assertEquals(200, status);
-        Assert.assertEquals("success", result);
+        Assert.assertEquals("password not correct", result);
     }
 
     @Test

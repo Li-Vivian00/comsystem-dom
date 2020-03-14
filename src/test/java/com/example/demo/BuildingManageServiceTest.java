@@ -4,6 +4,7 @@ import com.example.comsystem.DemoApplication;
 import com.example.comsystem.entity.FloorInfo;
 import com.example.comsystem.entity.RoomInfo;
 import com.example.comsystem.service.impl.BuildingManageServiceImpl.BuildingManageServiceImpl;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class BuildingManageServiceTest {
 
     @Test
     public void test_getRoomByFloorId() {
-        List<RoomInfo> result = buildingManageService.getRoomByFloorId("A1");
-        System.out.println(result.size());
+        List<RoomInfo> result1 = buildingManageService.getRoomByFloorId("A1");
+        Assert.assertNotNull(result1);
     }
 }
